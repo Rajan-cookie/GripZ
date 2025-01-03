@@ -148,6 +148,47 @@ a{
 
 }
 
+@media (max-width: 800px) {
+
+  /* Navbar fix */
+  nav {
+    padding: 10px 20px;
+  }
+
+  .navbar-toggle {
+    font-size: 20px;
+    padding: 10px;
+  }
+
+  .navbar-menu {
+    top: 60px; /* Osiguravamo da se meni ne preklapa sa ostalim sadržajem */
+  }
+
+  .navbar-brand {
+    font-size: 18px;
+  }
+
+  /* Hero fix */
+  .hero {
+    padding: 50px 15px; /* Smanjujemo padding za manje ekrane */
+    text-align: center; /* Centriramo tekst */
+  }
+
+  .hero h1 {
+    font-size: 24px; /* Smanjujemo veličinu glavnog naslova */
+    line-height: 1.4;
+  }
+
+  .hero p {
+    font-size: 16px; /* Smanjujemo veličinu podnaslova */
+  }
+
+  .hero .cta {
+    font-size: 14px; /* Prilagođavamo dugmad */
+    padding: 10px 15px;
+  }
+}
+
 /* Responsivni dizajn za mobilne uređaje */
 @media (max-width: 768px) {
     /* Header */
