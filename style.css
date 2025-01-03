@@ -148,44 +148,74 @@ a{
 
 }
 
-@media (max-width: 800px) {
+@media (max-width: 800px) and (min-width: 768px) {
 
   /* Navbar fix */
-  nav {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px 20px;
   }
 
-  .navbar-toggle {
-    font-size: 20px;
+  .navbar .hamburger {
+    display: block;
+    cursor: pointer;
+    font-size: 1.4rem;
+    z-index: 1000;
+  }
+
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    background-color: #111;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 80%;
+    text-align: center;
     padding: 10px;
+    z-index: 999;
+    border-radius: 5px;
   }
 
-  .navbar-menu {
-    top: 60px; /* Osiguravamo da se meni ne preklapa sa ostalim sadržajem */
+  .navbar ul.active {
+    display: flex;
   }
 
-  .navbar-brand {
-    font-size: 18px;
+  .navbar ul li {
+    margin: 10px 0;
+  }
+
+  .navbar ul li a {
+    font-size: 1rem;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
   }
 
   /* Hero fix */
   .hero {
-    padding: 50px 15px; /* Smanjujemo padding za manje ekrane */
-    text-align: center; /* Centriramo tekst */
+    padding: 40px 20px;
+    text-align: center;
   }
 
   .hero h1 {
-    font-size: 24px; /* Smanjujemo veličinu glavnog naslova */
-    line-height: 1.4;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
   }
 
   .hero p {
-    font-size: 16px; /* Smanjujemo veličinu podnaslova */
+    font-size: 1.1rem;
+    margin-bottom: 15px;
   }
 
   .hero .cta {
-    font-size: 14px; /* Prilagođavamo dugmad */
-    padding: 10px 15px;
+    font-size: 1.1rem;
+    padding: 10px 25px;
+    margin: 0 auto;
+    display: inline-block;
   }
 }
 
