@@ -69,12 +69,16 @@ async function handleFormSubmit(event) {
   const form = event.target; // Dohvati formu koja je poslata
   const formData = new FormData(form); // Pripremi podatke za slanje
 
+  console.log("Podaci koji se šalju na Web3Forms:", Object.fromEntries(formData)); // Provera podataka
+
   try {
     // Pošalji podatke na Web3Forms API
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
       body: formData,
     });
+
+    console.log("Odgovor Web3Forms API-ja:", response); // Provera odgovora sa servera
 
     if (!response.ok) {
       throw new Error("Greška u slanju forme");
