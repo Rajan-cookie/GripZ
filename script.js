@@ -64,60 +64,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //Porudzbina logika kada se posalje da se resitiraju sva polja 
 
-function handleFormSubmit(event) {
-  event.preventDefault(); // Sprečava podrazumevani reload
-  const form = event.target;
+async function handleFormSubmit(event) {
+  event.preventDefault(); // Spreči podrazumevani reload stranice
+  const form = event.target; // Dohvati formu koja je poslata
+  const formData = new FormData(form); // Pripremi podatke za slanje
 
-  // Resetuj polja nakon uspešnog slanja
-  form.reset();
+  try {
+    // Pošalji podatke na Web3Forms API
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
 
-  // Prikaz povratne informacije
-  alert("Poruka uspešno poslata! Sva polja su resetovana.");
+    if (!response.ok) {
+      throw new Error("Greška u slanju forme");
+    }
 
-  // Opcionalno: Preusmeravanje nazad ili osvežavanje stranice
-  window.location.href = window.location.href; // Reload stranice
-}
+    // Ako je sve u redu, prikaži modal
+    const modal = document.getElementById("success-modal");
+    modal.style.display = "block";
 
+    // Resetuj formu
+    form.reset();
 
-
-function handleFormSubmit(event) {
-  event.preventDefault(); // Sprečava podrazumevani reload
-  const form = event.target;
-
-  // Resetuj polja nakon uspešnog slanja
-  form.reset();
-
-  // Prikaži modal
-  const modal = document.getElementById("success-modal");
-  modal.style.display = "block";
-}
-
-function closeModal() {
-  // Zatvori modal
-  const modal = document.getElementById("success-modal");
-  modal.style.display = "none";
-}
-function handleFormSubmit(event) {
-  event.preventDefault(); // Sprečava podrazumevani reload
-  const form = event.target;
-
-  // Resetuj polja nakon uspešnog slanja
-  form.reset();
-
-  // Prikaži modal
-  const modal = document.getElementById("success-modal");
-  modal.style.display = "block";
+    console.log("Uspešno poslato:", await response.json());
+  } catch (error) {
+    console.error("Došlo je do greške:", error);
+    alert("Došlo je do greške pri slanju poruke. Pokušajte ponovo.");
+  }
 }
 
 function closeModal() {
-  // Zatvori modal
   const modal = document.getElementById("success-modal");
   modal.style.display = "none";
 }
 
 function goToHome() {
-  console.log("Preusmeravanje na početnu stranicu...");
-  window.location.href = "index.html"; // Ova ruta treba da vodi do tvoje početne stranice
+  window.location.href = "index.html"; // Preusmeravanje na početnu stranicu
 }
 
 
