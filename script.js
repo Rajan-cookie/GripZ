@@ -1,3 +1,6 @@
+window.location.href = "azuriranje.html";
+
+
 // Resetuje skrol poziciju na vrh stranice pri učitavanju
 window.onload = function() {
     window.scrollTo(0, 0);
