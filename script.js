@@ -1,4 +1,4 @@
-window.location.href = "azuriranje.html";
+//window.location.href = "azuriranje.html";
 
 
 // Resetuje skrol poziciju na vrh stranice pri učitavanju
